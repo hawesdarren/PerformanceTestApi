@@ -17,4 +17,4 @@ services:
       dockerfile: Dockerfile-IntegrationTest
     container_name: "performance-test-api-test"
     environment:
-      - SUT=http://performance-test-api-app
+      - SUT=http://performance-test-api-app:5235
