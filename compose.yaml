@@ -1,0 +1,20 @@
+services:
+  dotnetapp:
+    build:
+      dockerfile: Dockerfile
+    container_name: "performance-test-api-app"
+    ports:
+      - "5235:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "0.5G"
+  dotnettest:
+    depends_on:
+      - dotnetapp
+    build:
+      dockerfile: IntergrationTests/Dockerfile
+    container_name: "performance-test-api-test"
+    environment:
+      - SUT="http://performance-test-api-app/WeatherForecast"

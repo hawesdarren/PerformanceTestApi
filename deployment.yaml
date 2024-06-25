@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: performance-test-api
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: performance-test-api
+    spec:
+      containers:
+      - name: performance-test-api
+        image: performance-test-api-image
+        imagePullPolicy: Never
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "500Mi"
+        ports:
+        - containerPort: 5235
+  selector:
+    matchLabels:
+      app: performance-test-api
