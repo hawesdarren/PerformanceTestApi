@@ -46,6 +46,7 @@ namespace IntergrationTests
             int dateCounter = 0;
             foreach (var weatherResponse in response) {
                 DateOnly date = DateOnly.FromDateTime(DateTime.Now.AddDays(dateCounter));
+                System.Console.WriteLine(date);
                 string formatedDate = date.ToString("yyyy-MM-dd");
                 weatherResponse.date.Should().Be(formatedDate);
                 weatherResponse.temperatureC.Should().BeOfType(typeof(int));
