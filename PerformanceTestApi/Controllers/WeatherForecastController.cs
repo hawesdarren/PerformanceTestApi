@@ -27,7 +27,7 @@ namespace PerformanceTestApi.Controllers
 
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                Date = DateOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now.AddDays(index), DateTimeKind.Local)),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })

@@ -45,10 +45,12 @@ namespace IntergrationTests
             //Set initial date counter
             int dateCounter = 0;
             foreach (var weatherResponse in response) {
-                DateOnly date = DateOnly.FromDateTime(DateTime.Now.AddDays(dateCounter).ToLocalTime());
+                //DateTime dateTime = DateTime.Now.AddDays(dateCounter);
+                //DateTime localDateTime = DateTime.SpecifyKind(DateTime.Now.AddDays(dateCounter), DateTimeKind.Local);
+                DateOnly date = DateOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now.AddDays(dateCounter), DateTimeKind.Local));
                 System.Console.WriteLine("Date: " + date);
-                string formatedDate = date.ToString("yyyy-MM-dd");
-                weatherResponse.date.Should().Be(formatedDate);
+                //string formatedDate = date.ToString("yyyy-MM-dd");
+                weatherResponse.date.Should().Be(date.ToString());
                 weatherResponse.temperatureC.Should().BeOfType(typeof(int));
                 weatherResponse.temperatureF.Should().BeOfType(typeof(int));
                 weatherResponse.summary.Should().NotBeNull();
