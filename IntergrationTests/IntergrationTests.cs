@@ -45,7 +45,7 @@ namespace IntergrationTests
             //Set initial date counter
             int dateCounter = 0;
             foreach (var weatherResponse in response) {
-                DateOnly date = DateOnly.FromDateTime(DateTime.Today.AddDays(dateCounter));
+                DateOnly date = DateOnly.FromDateTime(DateTime.Now.AddDays(dateCounter));
                 string formatedDate = date.ToString("yyyy-MM-dd");
                 weatherResponse.date.Should().Be(formatedDate);
                 weatherResponse.temperatureC.Should().BeOfType(typeof(int));
