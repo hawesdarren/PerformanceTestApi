@@ -3,6 +3,6 @@ WORKDIR /app
 
 COPY . . 
 
-EXPOSE 5235
+EXPOSE 8080
 
 CMD [ "dotnet", "test" ]
