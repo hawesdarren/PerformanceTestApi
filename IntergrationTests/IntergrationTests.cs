@@ -43,14 +43,10 @@ namespace IntergrationTests
                     .GetJsonAsync<List<WeatherResponse>>();
             
             //Set initial date counter
-            int dateCounter = 0;
+            int dateCounter = 1;
             foreach (var weatherResponse in response) {
-                //DateTime dateTime = DateTime.Now.AddDays(dateCounter);
-                //DateTime localDateTime = DateTime.SpecifyKind(DateTime.Now.AddDays(dateCounter), DateTimeKind.Local);
-                DateOnly date = DateOnly.FromDateTime(DateTime.SpecifyKind(DateTime.Now.AddDays(dateCounter), DateTimeKind.Local));
-                System.Console.WriteLine("Date: " + date);
-                //string formatedDate = date.ToString("yyyy-MM-dd");
-                weatherResponse.date.Should().Be(date.ToString());
+                DateOnly date = DateOnly.FromDateTime(DateTime.Now.AddDays(dateCounter));
+                weatherResponse.date.Should().Be(date.ToString("yyyy-MM-dd"));
                 weatherResponse.temperatureC.Should().BeOfType(typeof(int));
                 weatherResponse.temperatureF.Should().BeOfType(typeof(int));
                 weatherResponse.summary.Should().NotBeNull();
