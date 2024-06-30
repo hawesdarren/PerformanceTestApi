@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: performance-test-api
+  name: performance-test-api-app
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: performance-test-api
+        app: performance-test-api-app
     spec:
       containers:
       - name: performance-test-api
@@ -21,4 +21,4 @@ spec:
         - containerPort: 5235
   selector:
     matchLabels:
-      app: performance-test-api
+      app: performance-test-api-app
