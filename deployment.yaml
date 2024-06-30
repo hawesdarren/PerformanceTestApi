@@ -12,7 +12,7 @@ spec:
       containers:
       - name: performance-test-api
         image: performance-test-api-image
-        imagePullPolicy: Never
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             cpu: "0.5"
