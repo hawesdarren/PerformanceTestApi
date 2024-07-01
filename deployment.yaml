@@ -18,7 +18,7 @@ spec:
             cpu: "0.5"
             memory: "500Mi"
         ports:
-        - containerPort: 5235
+        - containerPort: 8080
   selector:
     matchLabels:
       app: performance-test-api-app
