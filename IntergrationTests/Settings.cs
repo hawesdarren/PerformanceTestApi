@@ -11,7 +11,7 @@ namespace IntergrationTests
         public static string GetSUT() {
             var sutEnv = Environment.GetEnvironmentVariable("SUT");
             if (string.IsNullOrEmpty(sutEnv)) {
-                return "http://localhost:5235";
+                return "http://localhost:31001";
             }
             return sutEnv;
         }

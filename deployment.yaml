@@ -12,13 +12,11 @@ spec:
       containers:
       - name: performance-test-api
         image: performance-test-api-image
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
         resources:
           limits:
             cpu: "0.5"
             memory: "500Mi"
-        ports:
-        - containerPort: 8080
   selector:
     matchLabels:
       app: performance-test-api-app
