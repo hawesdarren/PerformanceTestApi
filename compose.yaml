@@ -1,7 +1,7 @@
 services:
   dotnet-test:
     build:
-      dockerfile: Dockerfile-IntegrationTest
+      dockerfile: Dockerfile-Test
     network_mode: "host"
     container_name: "performance-test-api-test"
     environment:
