@@ -3,6 +3,4 @@ WORKDIR /app
 
 COPY . . 
 
-EXPOSE 8080
-
-CMD [ "dotnet", "test" ]
+CMD [ "dotnet", "test", "--logger:trx", "--results-directory results" ]
