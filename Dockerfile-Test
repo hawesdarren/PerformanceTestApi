@@ -3,4 +3,4 @@ WORKDIR /app
 
 COPY . . 
 
-CMD [ "dotnet", "test", "--logger:trx" ]
+CMD [ "dotnet", "test", "--logger:trx", :"--logger:html" ]
