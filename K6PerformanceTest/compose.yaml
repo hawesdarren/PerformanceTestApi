@@ -7,7 +7,7 @@ services:
     working_dir: /app
     command: >
       run
-      "/app/src/performance-test.js"
+      "/app/K6PerformanceTest/src/performance-test.js"
       --env TARGET_ENVIRONMENT="integrate"
       --env SUMMARY_FILE_NAME="/app/summary.html"
       --out csv=/app/raw-results.csv
