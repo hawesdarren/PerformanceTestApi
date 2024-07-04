@@ -1,0 +1,14 @@
+services:
+  k6:
+    image: grafana/k6:latest
+    container_name: k6-performance-test
+    volumes:
+      - ./src:/app
+    working_dir: /app
+    command: >
+      run
+      "/app/src/performance-test.js"
+      --env TARGET_ENVIRONMENT="integrate"
+      --env SUMMARY_FILE_NAME="/app/summary.html"
+      --out csv=/app/raw-results.csv
+      
