@@ -23,7 +23,7 @@ export const options = {
             maxVUs: 100,
             stages: [
                 { target: 5000, duration: "2m" },   
-                //{ target: 5000, duration: "10m" },  
+                { target: 5000, duration: "8m" },  
             ],
             gracefulStop: "30s",
         },
