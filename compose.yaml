@@ -1,8 +1,11 @@
 services:
   dotnet-test:
-    build:
-      dockerfile: Dockerfile-Test
+    image: mcr.microsoft.com/dotnet/sdk:8.0
+    container_name: performance-test-api-test
     network_mode: "host"
-    container_name: "performance-test-api-test"
+    volumes:
+      - .:/app
+    working_dir: /app
     environment:
       - SUT=http://localhost:31001
+    command: [ "dotnet", "test", "--logger:trx", "--logger:html" ]
