@@ -10,9 +10,9 @@ services:
     command: >
       run
       "performance-test.js"
-      --env TARGET_ENVIRONMENT="integrate"
+      --env TARGET_ENVIRONMENT=integrate
       --env SUMMARY_FILE_NAME="/app/summary.html"
       --env K6_PROMETHEUS_RW_SERVER_URL=http://192.168.1.103:32003/api/v1/write
       --env K6_PROMETHEUS_RW_TREND_STATS="p(95),p(99),min,max"
       --out csv=/app/raw-results.csv
-      --out experimental-prometheus-rw performance-tests.js
+      --out experimental-prometheus-rw
